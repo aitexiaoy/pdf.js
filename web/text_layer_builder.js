@@ -106,6 +106,8 @@ class TextLayerBuilder {
       this._updateMatches();
     }, function (reason) {
       // Cancelled or failed to render text layer; skipping errors.
+    }).catch((error) => {
+      console.log(error);
     });
 
     if (!this._onUpdateTextLayerMatches) {

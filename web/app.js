@@ -148,8 +148,7 @@ let PDFViewerApplication = {
     await this._parseHashParameters();
     await this._initializeL10n();
 
-    if (this.isViewerEmbedded &&
-        AppOptions.get('externalLinkTarget') === LinkTarget.NONE) {
+    if (this.isViewerEmbedded && AppOptions.get('externalLinkTarget') === LinkTarget.NONE) {
       // Prevent external links from "replacing" the viewer,
       // when it's embedded in e.g. an <iframe> or an <object>.
       AppOptions.set('externalLinkTarget', LinkTarget.TOP);
@@ -1487,8 +1486,7 @@ let PDFViewerApplication = {
 
 let validateFileURL;
 if (typeof PDFJSDev === 'undefined' || PDFJSDev.test('GENERIC')) {
-  const HOSTED_VIEWER_ORIGINS = ['null',
-    'http://mozilla.github.io', 'https://mozilla.github.io'];
+  const HOSTED_VIEWER_ORIGINS = ['null', 'http://mozilla.github.io', 'https://mozilla.github.io'];
   validateFileURL = function validateFileURL(file) {
     if (file === undefined) {
       return;
@@ -1511,9 +1509,8 @@ if (typeof PDFJSDev === 'undefined' || PDFJSDev.test('GENERIC')) {
       }
     } catch (ex) {
       let message = ex && ex.message;
-      PDFViewerApplication.l10n.get('loading_error', null,
-          'An error occurred while loading the PDF.').
-          then((loadingErrorMessage) => {
+      PDFViewerApplication.l10n.get('loading_error', null, 'An error occurred while loading the PDF.')
+      .then((loadingErrorMessage) => {
         PDFViewerApplication.error(loadingErrorMessage, { message, });
       });
       throw ex;
@@ -1581,8 +1578,7 @@ function webViewerInitialized() {
     fileInput.oncontextmenu = noContextMenuHandler;
     document.body.appendChild(fileInput);
 
-    if (!window.File || !window.FileReader ||
-        !window.FileList || !window.Blob) {
+    if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
       appConfig.toolbar.openFile.setAttribute('hidden', 'true');
       appConfig.secondaryToolbar.openFileButton.setAttribute('hidden', 'true');
     } else {
@@ -1623,9 +1619,7 @@ function webViewerInitialized() {
     appConfig.secondaryToolbar.openFileButton.setAttribute('hidden', 'true');
   }
 
-  if (typeof PDFJSDev !== 'undefined' &&
-      PDFJSDev.test('FIREFOX || MOZCENTRAL') &&
-      !PDFViewerApplication.supportsDocumentFonts) {
+  if (typeof PDFJSDev !== 'undefined' && PDFJSDev.test('FIREFOX || MOZCENTRAL') && !PDFViewerApplication.supportsDocumentFonts) {
     AppOptions.set('disableFontFace', true);
     PDFViewerApplication.l10n.get('web_fonts_disabled', null,
       'Web fonts are disabled: unable to use embedded PDF fonts.').
@@ -2011,6 +2005,7 @@ function webViewerFind(evt) {
     entireWord: evt.entireWord,
     highlightAll: evt.highlightAll,
     findPrevious: evt.findPrevious,
+    color: 'red',
   });
 }
 

@@ -54,11 +54,16 @@
     "yargs": "^11.1.0"
   },
   "scripts": {
-    "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest"
+    "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest",
+    "dev":"gulp server",
+    "build":"gulp generic"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/mozilla/pdf.js.git"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "pdfjs-dist": "^2.1.266"
+  }
 }

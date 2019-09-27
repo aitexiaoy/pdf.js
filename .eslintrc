@@ -147,7 +147,7 @@
     "linebreak-style": ["error", "unix"],
     "lines-between-class-members": ["error", "always"],
     "max-len": ["error", {
-      "code": 80,
+      "code": 150,
       "ignoreUrls": true
     }],
     "new-cap": ["error", { "newIsCap": true, "capIsNew": false, }],
